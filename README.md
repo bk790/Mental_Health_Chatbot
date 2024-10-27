@@ -71,7 +71,7 @@ To interact with the chatbot, modify the input message in the script and execute
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-- [TechFest_Digital University Kerala] - For the opportunity to showcase this project
+- TechFest_Digital University Kerala - For the opportunity to showcase this project
 - [TensorFlow](https://www.tensorflow.org/)
 - [Keras](https://keras.io/)
 - [NLTK](https://www.nltk.org/)
