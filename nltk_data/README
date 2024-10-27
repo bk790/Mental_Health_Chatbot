@@ -1,101 +1,98 @@
+Pretrained Punkt Models -- Jan Strunk (New version trained after issues 313 and 514 had been corrected)
 
-		This is the README file for WordNet 3.0
+Most models were prepared using the test corpora from Kiss and Strunk (2006). Additional models have
+been contributed by various people using NLTK for sentence boundary detection.
 
-1. About WordNet
+For information about how to use these models, please confer the tokenization HOWTO:
+http://nltk.googlecode.com/svn/trunk/doc/howto/tokenize.html
+and chapter 3.8 of the NLTK book:
+http://nltk.googlecode.com/svn/trunk/doc/book/ch03.html#sec-segmentation
 
-WordNet was developed at Princeton University's Cognitive Science
-Laboratory under the direction of George Miller, James S. McDonnell
-Distinguished University Professor of Psychology, Emeritus. Over the
-years many linguists, lexicographers, students, and software engineers
-have contributed to the project.
+There are pretrained tokenizers for the following languages:
 
-WordNet is an online lexical reference system.  Word forms in WordNet
-are represented in their familiar orthography; word meanings are
-represented by synonym sets (synsets) - lists of synonymous word forms
-that are interchangeable in some context.  Two kinds of relations are
-recognized: lexical and semantic.  Lexical relations hold between word
-forms; semantic relations hold between word meanings.  
+File                Language            Source                             Contents                Size of training corpus(in tokens)           Model contributed by
+=======================================================================================================================================================================
+czech.pickle        Czech               Multilingual Corpus 1 (ECI)        Lidove Noviny                   ~345,000                             Jan Strunk / Tibor Kiss
+                                                                           Literarni Noviny
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+danish.pickle       Danish              Avisdata CD-Rom Ver. 1.1. 1995     Berlingske Tidende              ~550,000                             Jan Strunk / Tibor Kiss
+                                        (Berlingske Avisdata, Copenhagen)  Weekend Avisen
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+dutch.pickle        Dutch               Multilingual Corpus 1 (ECI)        De Limburger                    ~340,000                             Jan Strunk / Tibor Kiss
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+english.pickle      English             Penn Treebank (LDC)                Wall Street Journal             ~469,000                             Jan Strunk / Tibor Kiss
+                    (American)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+estonian.pickle     Estonian            University of Tartu, Estonia       Eesti Ekspress                  ~359,000                             Jan Strunk / Tibor Kiss
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+finnish.pickle      Finnish             Finnish Parole Corpus, Finnish     Books and major national        ~364,000                             Jan Strunk / Tibor Kiss
+                                        Text Bank (Suomen Kielen           newspapers
+                                        Tekstipankki)
+                                        Finnish Center for IT Science
+                                        (CSC)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+french.pickle       French              Multilingual Corpus 1 (ECI)        Le Monde                        ~370,000                             Jan Strunk / Tibor Kiss
+                    (European)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+german.pickle       German              Neue Zürcher Zeitung AG            Neue Zürcher Zeitung            ~847,000                             Jan Strunk / Tibor Kiss
+                    (Switzerland)       CD-ROM
+                    (Uses "ss"
+                     instead of "ß")
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+greek.pickle        Greek               Efstathios Stamatatos              To Vima (TO BHMA)               ~227,000                             Jan Strunk / Tibor Kiss
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+italian.pickle      Italian             Multilingual Corpus 1 (ECI)        La Stampa, Il Mattino           ~312,000                             Jan Strunk / Tibor Kiss
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+norwegian.pickle    Norwegian           Centre for Humanities              Bergens Tidende                 ~479,000                             Jan Strunk / Tibor Kiss
+                    (Bokmål and         Information Technologies,
+                     Nynorsk)           Bergen
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+polish.pickle       Polish              Polish National Corpus             Literature, newspapers, etc.  ~1,000,000                             Krzysztof Langner
+                                        (http://www.nkjp.pl/)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+portuguese.pickle   Portuguese          CETENFolha Corpus                  Folha de São Paulo              ~321,000                             Jan Strunk / Tibor Kiss
+                    (Brazilian)         (Linguateca)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+slovene.pickle      Slovene             TRACTOR                            Delo                            ~354,000                             Jan Strunk / Tibor Kiss
+                                        Slovene Academy for Arts
+                                        and Sciences
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+spanish.pickle      Spanish             Multilingual Corpus 1 (ECI)        Sur                             ~353,000                             Jan Strunk / Tibor Kiss
+                    (European)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+swedish.pickle      Swedish             Multilingual Corpus 1 (ECI)        Dagens Nyheter                  ~339,000                             Jan Strunk / Tibor Kiss
+                                                                           (and some other texts)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+turkish.pickle      Turkish             METU Turkish Corpus                Milliyet                        ~333,000                             Jan Strunk / Tibor Kiss
+                                        (Türkçe Derlem Projesi)
+                                        University of Ankara
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-To learn more about WordNet, the book "WordNet: An Electronic Lexical
-Database," containing an updated version of "Five Papers on WordNet"
-and additional papers by WordNet users, is available from MIT Press:
+The corpora contained about 400,000 tokens on average and mostly consisted of newspaper text converted to
+Unicode using the codecs module.
 
-    http://mitpress.mit.edu/book-home.tcl?isbn=026206197X
+Kiss, Tibor and Strunk, Jan (2006): Unsupervised Multilingual Sentence Boundary Detection.
+Computational Linguistics 32: 485-525.
 
-2. The WordNet Web Site
+---- Training Code ----
 
-We maintain a Web site at:
+# import punkt
+import nltk.tokenize.punkt
 
-http://wordnet.princeton.edu
+# Make a new Tokenizer
+tokenizer = nltk.tokenize.punkt.PunktSentenceTokenizer()
 
-Information about WordNet, access to our online interface, and the
-various WordNet packages that you can download are available from our
-web site.  All of the software documentation is available online, as
-well as a FAQ.  On this site we also have information about other
-applications that use WordNet. If you have an application that you
-would like included, please send e-mail to the above address.
+# Read in training corpus (one example: Slovene)
+import codecs
+text = codecs.open("slovene.plain","Ur","iso-8859-2").read()
 
-3. Contacting Us
+# Train tokenizer
+tokenizer.train(text)
 
-Ongoing deveopment work and WordNet related projects are done by a
-small group of researchers, lexicographers, and systems programmers.
-Since our resources are VERY limited, we request that you please
-confine correspondence to WordNet topics only.  Please check the
-documentation, FAQ, and other resources for the answer to your
-question or problem before contacting us.
+# Dump pickled tokenizer
+import pickle
+out = open("slovene.pickle","wb")
+pickle.dump(tokenizer, out)
+out.close()
 
-If you have trouble installing or downloading WordNet, have a bug to
-report, or any other problem, please refer to the online FAQ file
-first.  If you can heal thyself, please do so.  The FAQ will be
-updated over time.  And if you do find a previously unreported
-problem, please use our Bug Report Form:
-
-http://wordnet.princeton.edu/cgi-bin/bugsubmit.pl
-
-When reporting a problem, please be as specific as possible, stating
-the computer platform you are using, which interface you are using,
-and the exact error.  The more details you can provide, the more
-likely it is that you will get an answer. 
-
-There is a WordNet user discussion group mailing list that we invite
-our users to join.  Users use this list to ask questions of one
-another, announce extensions to WordNet that they've developed, and
-other topics of general usefulness to the user community.
-
-Information on joining the user discussion list, reporting bugs and other
-contact information is in found on our website at:
-
-http://wordnet.princeton.edu/contact
-
-4. Current Release
-
-WordNet Version 3.0 is the latest version available for download.  Two
-basic database packages are available - one for Windows and one for
-Unix platforms (including Mac OS X).  See the file ChangeLog (Unix) or
-CHANGES.txt (Windows) for a list of changes from previous versions.
-
-WordNet packages can either be downloaded from our web site via:
-
-http://wordnet.princeton.edu/obtain
-
-The Windows package is a self-extracting archive that installs itself
-when you double-click on it.
-
-Beginning with Version 2.1, we changed the Unix package to a GNU Autotools
-package.  The WordNet browser makes use of the open source Tcl and Tk
-packages. Many systems come with either or both pre-installed.  If
-your system doesn't (some systems have Tcl installed, but not Tk)
-Tcl/Tk can be downloaded from:
-
-http://www.tcl.tk/ 
-
-Tcl and Tk must be installed BEFORE you compile WordNet. You must also
-have a C compiler before installing Tcl/Tk or WordNet.  WordNet has
-been built and tested with the GNU gcc compiler.  This is
-pre-installed on most Unix systems, and can be downloaded from:
-
-http://gcc.gnu.org/
-
-See the file INSTALL for detailed WordNet installation instructions.
-
-
+---------
