@@ -33,7 +33,7 @@ This project was presented at **[Hackathon Name]**, where we aimed to create an 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/chatbot-project.git
+   git clone [https://github.com/yourusername/chatbot-project.git](https://github.com/bk790/Mental_Health_Chatbot.git)
    cd chatbot-project
 
 
