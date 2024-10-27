@@ -1,4 +1,4 @@
-Great! Here’s a revised version of the README file that highlights the hackathon aspect:
+
 
 ```markdown
 # Chatbot Project
