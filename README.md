@@ -78,8 +78,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [NLTK](https://www.nltk.org/)
 ```
 
-### Instructions for Screenshots
-- Remember to replace `path/to/screenshot1.png`, `path/to/screenshot2.png`, and `path/to/screenshot3.png` with the actual paths to your screenshots.
-- Provide appropriate descriptions for each screenshot to explain what they represent, possibly mentioning how they relate to your hackathon presentation.
 
-Feel free to adjust any details to better suit your project!
