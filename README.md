@@ -14,13 +14,13 @@ This project was presented at **[Hackathon Name]**, where we aimed to create an 
 
 ## Screenshots
 ![Screenshot 1](cb1.PNG)
-*Description of Screenshot 1*
+*Response for hi*
 
 ![Screenshot 2](cb2.PNG)
-*Description of Screenshot 2*
+*response for feeling sad*
 
 ![Screenshot 3](cb3.PNG)
-*Description of Screenshot 3*
+*response for depressed*
 
 ## Requirements
 - Python 3.x
