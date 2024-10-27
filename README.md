@@ -1,6 +1,3 @@
-
-
-```markdown
 # Chatbot Project
 
 ## Description
@@ -13,7 +10,7 @@ This project was developed for a hackathon and implements a simple chatbot using
 - Real-time interaction capabilities
 
 ## Hackathon Presentation
-This project was presented at [Hackathon Name], where we aimed to create an engaging and functional chatbot. The feedback received helped enhance its functionality and user experience.
+This project was presented at **[Hackathon Name]**, where we aimed to create an engaging and functional chatbot. The feedback received helped enhance its functionality and user experience.
 
 ## Screenshots
 ![Screenshot 1](cb1.png)
@@ -38,7 +35,9 @@ This project was presented at [Hackathon Name], where we aimed to create an enga
    ```bash
    git clone https://github.com/yourusername/chatbot-project.git
    cd chatbot-project
-   ```
+
+
+
 
 2. **Install the required packages**:
    ```bash
