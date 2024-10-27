@@ -16,13 +16,13 @@ This project was developed for a hackathon and implements a simple chatbot using
 This project was presented at [Hackathon Name], where we aimed to create an engaging and functional chatbot. The feedback received helped enhance its functionality and user experience.
 
 ## Screenshots
-![Screenshot 1](path/to/screenshot1.png)
+![Screenshot 1](cb1.png)
 *Description of Screenshot 1*
 
-![Screenshot 2](path/to/screenshot2.png)
+![Screenshot 2](cb2.png)
 *Description of Screenshot 2*
 
-![Screenshot 3](path/to/screenshot3.png)
+![Screenshot 3](cb3.png)
 *Description of Screenshot 3*
 
 ## Requirements
