@@ -5,14 +5,23 @@ import nltk
 import streamlit as st
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import load_model
+import os
 
 # Set the NLTK data path
-nltk.data.path.append('./nltk_data')  # Adjust this path as needed
+nltk.data.path.append(os.path.join(os.getcwd(), 'nltk_data'))
+
+# Print NLTK data paths for verification
+print("NLTK data paths:", nltk.data.path)
+
+# Download necessary NLTK data (if needed)
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 
 # Initialize the lemmatizer
 lemmatizer = WordNetLemmatizer()
 
-# Load intents
 with open('intents.json') as file:
     intents = json.load(file)
 
