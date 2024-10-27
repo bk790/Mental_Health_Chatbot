@@ -10,7 +10,7 @@ This project was developed for a hackathon and implements a simple chatbot using
 - Real-time interaction capabilities
 
 ## Hackathon Presentation
-This project was presented at **[Hackathon Name]**, where we aimed to create an engaging and functional chatbot. The feedback received helped enhance its functionality and user experience.
+This project was presented at **TechFest_Hackathon_Digital University Kerala**, where we aimed to create an engaging and functional chatbot. The feedback received helped enhance its functionality and user experience.
 
 ## Screenshots
 ![Screenshot 1](cb1.PNG)
@@ -71,7 +71,7 @@ To interact with the chatbot, modify the input message in the script and execute
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-- TechFest_Digital University Kerala - For the opportunity to showcase this project
+- TechFest_Hackathon Digital University Kerala - For the opportunity to showcase this project
 - [TensorFlow](https://www.tensorflow.org/)
 - [Keras](https://keras.io/)
 - [NLTK](https://www.nltk.org/)
