@@ -5,19 +5,9 @@ import nltk
 import streamlit as st
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import load_model
-import os
 
-# Set the NLTK data path
-nltk.data.path.append(os.path.join(os.getcwd(), 'nltk_data'))
-
-# Print NLTK data paths for verification
-print("NLTK data paths:", nltk.data.path)
-
-# Download necessary NLTK data (if needed)
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
+nltk.download('punkt')
+nltk.download('wordnet')
 
 # Initialize the lemmatizer
 lemmatizer = WordNetLemmatizer()
@@ -25,7 +15,7 @@ lemmatizer = WordNetLemmatizer()
 with open('intents.json') as file:
     intents = json.load(file)
 
-# Load the model
+#model
 model = load_model('chatbot_model.h5')
 
 # Data Preprocessing
@@ -75,10 +65,10 @@ def get_response(intents_list, intents_json):
             return random.choice(i['responses'])
 
 # Streamlit App
-st.title("Mental Health Chatbot")
+st.title("Mental Health Chatbot ")
 st.write("I'm here to support you. How can I help?")
 
-user_input = st.text_input("You:")
+user_input = st.text_input("You: ")
 
 if st.button("Send"):
     if user_input:
@@ -87,3 +77,4 @@ if st.button("Send"):
         st.write("**Bot:**", response)
     else:
         st.write("Please enter a message.")
+
